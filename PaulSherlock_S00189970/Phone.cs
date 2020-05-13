@@ -9,6 +9,7 @@ namespace PaulSherlock_S00189970
 {
     public class Phone
     {
+        public int ID { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
         public string Operating_System { get; set; }

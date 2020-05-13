@@ -15,8 +15,8 @@ namespace PhoneDataManagement
 
             using (database)
             {
-                Phone p1 = new Phone("Samsung S20", 500, "Android", "/images/android.png", "/images/s20.jpg");
-                Phone p2 = new Phone("iPhone 11", 600, "IOS", "/images/apple.png", "/images/iphone11.jpg");
+                Phone p1 = new Phone("Samsung S20", 500, "Android", "/images/android.png", "/images/s20.jpg") { ID =1};
+                Phone p2 = new Phone("iPhone 11", 600, "IOS", "/images/apple.png", "/images/iphone11.jpg") { ID = 2 };
 
                 database.Phones.Add(p1);
                 database.Phones.Add(p2);
