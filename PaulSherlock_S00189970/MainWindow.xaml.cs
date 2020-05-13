@@ -20,9 +20,35 @@ namespace PaulSherlock_S00189970
     /// </summary>
     public partial class MainWindow : Window
     {
+        PhoneData db = new PhoneData();
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var query = from p in db.Phones
+                        select p.Name;
+
+            var phones = query.ToList();
+
+            lbxName.ItemsSource = phones;
+        }
+
+        private void lbxName_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string name = lbxName.SelectedValue.ToString();
+
+            var query = from p in db.Phones
+                        where p.Name == name
+                        select p.Price;
+
+            var price = query.ToList();
+
+            tbxPrice.Text = $"€{price}";
+
+            
         }
     }
 }
