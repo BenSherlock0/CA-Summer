@@ -46,8 +46,15 @@ namespace PaulSherlock_S00189970
 
             var price = query.ToList();
 
-            tbxPrice.Text = $"€{price}";
+            tbxPrice.Text = $"€{price.ToString()}";
 
+            var queryimg = from p in db.Phones
+                           where p.Name == name
+                           select p.Phone_Image;
+
+            var img = queryimg.ToList();
+
+            //iPhoto.Source = img.ToString()
             
         }
     }

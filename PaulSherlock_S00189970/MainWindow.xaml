@@ -3,12 +3,28 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         xmlns:local="clr-namespace:PaulSherlock_S00189970"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
-        <ListBox x:Name="lbxName" HorizontalAlignment="Left" Height="308" Margin="124,54,0,0" VerticalAlignment="Top" Width="260" SelectionChanged="lbxName_SelectionChanged"/>
-        <TextBlock x:Name="tbxPrice" HorizontalAlignment="Left" Margin="542,54,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="72" Width="164"/>
+        <ListBox x:Name="lbxName" HorizontalAlignment="Left" Height="308" Margin="124,54,0,0" VerticalAlignment="Top" Width="260" SelectionChanged="lbxName_SelectionChanged" OpacityMask="Black">
+            <ListBox.BorderBrush>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionTextColorKey}}"/>
+            </ListBox.BorderBrush>
+        </ListBox>
+        <TextBlock x:Name="tbxPrice" HorizontalAlignment="Left" Margin="542,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="72" Width="164" Text="€0.00" FontSize="36"/>
         <Image x:Name="iPhoto" HorizontalAlignment="Left" Height="190" Margin="542,172,0,0" VerticalAlignment="Top" Width="164"/>
 
     </Grid>
